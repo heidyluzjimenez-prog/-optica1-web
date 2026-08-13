@@ -153,10 +153,10 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* WHATSAPP MÓVIL (MUY IMPORTANTE) */
+/* WHATSAPP MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 395px;
+    bottom: 200px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -171,7 +171,7 @@ a:hover {
 /* TARJETAS SERVICIOS */
 .servicio-card {
   background-color: var(--color-blanco);
-  border: 8px solid rgba(255,255,255,1);
+  border: 5px solid rgba(255,255,255,1);
   border-radius: 22px;
   overflow: hidden;
   transition: 0.35s;
@@ -329,6 +329,31 @@ a:hover {
   font-weight: 700;
 }
 
+/* ANIMACIÓN DE APARICIÓN DE LAS TARJETAS TESTIMONIOS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* EFECTO ESCALONADO DE LAS TARJETAS TESTIMONIOS */
+.fade-in:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.fade-in:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.fade-in:nth-child(3) {
+  transition-delay: 0.30s;
+}
+
 /* ESTRUCTURA y FONDO DEL FOOTER */
 footer {
   background-color: var(--color-negro);
@@ -374,3 +399,61 @@ section {
   padding-top: 120px !important;
   padding-bottom: 120px !important;
 }
+
+
+/* ENCABEZADO CONSULTA DE PEDIDO */
+.consulta-header {
+  min-height: 45vh;
+  background-image:
+    linear-gradient(rgba(229, 28, 113, 0.25), rgba(0, 0, 0, 0.7)),
+    url("../img/Futura.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* SECCIÓN CONSULTA */
+.consulta-section {
+  background-color: var(--color-secundario-soft);
+}
+
+/* TARJETA DE CONSULTA */
+.consulta-card {
+  background-color: var(--color-blanco);
+  padding: 45px 40px;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.16);
+}
+
+/* ICONO CONSULTA */
+.consulta-icon {
+  font-size: 3.5rem;
+  color: var(--color-acento);
+  margin-bottom: 15px;
+}
+
+/* TÍTULO DE LA TARJETA */
+.consulta-card h2 {
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* TEXTO */
+.consulta-card p {
+  color: var(--color-texto-secundario);
+  line-height: 1.6;
+}
+
+/* CAMPO DE PEDIDO */
+.consulta-card .form-control {
+  padding: 12px 15px;
+  border-radius: 10px;
+}
+
+/* CAMPO AL HACER CLIC */
+.consulta-card .form-control:focus {
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 0.2rem rgba(229, 28, 113, 0.15);
+}
+
