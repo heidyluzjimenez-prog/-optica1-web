@@ -156,7 +156,7 @@ a:hover {
 /* WHATSAPP MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 200px;
+    bottom: 150px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -455,5 +455,30 @@ section {
 .consulta-card .form-control:focus {
   border-color: var(--color-acento);
   box-shadow: 0 0 0 0.2rem rgba(229, 28, 113, 0.15);
+}
+
+/* RESULTADO DE CONSULTA DE PEDIDO */
+.resultado-pedido {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 18px;
+  background-color: var(--color-blanco);
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+}
+
+.resultado-pedido h4 {
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.resultado-pedido p {
+  color: var(--color-texto-secundario);
+  margin-bottom: 8px;
+}
+
+.estado-pedido {
+  color: var(--color-acento);
+  font-weight: 700;
 }
 

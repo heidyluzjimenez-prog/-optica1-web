@@ -1,9 +1,11 @@
+/*NAVBAR*/
 window.addEventListener("scroll", function() {
   const navbar = document.querySelector(".navbar-custom");
   navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
 
 
+/*ANIMACION*/
 const elementosFade = document.querySelectorAll(".fade-in");
 
 const observador = new IntersectionObserver(function(elementos) {
@@ -20,7 +22,31 @@ elementosFade.forEach(function(elemento) {
   observador.observe(elemento);
 });
 
+/*CONSULTA DE PEDIDOS*/
+const pedidos = {
+    "OP-00125": {
+        cliente: "María G.",
+        estado: "En fabricación",
+        fecha: "25 de agosto de 2026",
+        tipo: "Lentes formulados"
+    },
 
+    "OP-00126": {
+        cliente: "Carlos R.",
+        estado: "Listo para entregar",
+        fecha: "22 de agosto de 2026",
+        tipo: "Lentes antirreflejo"
+    },
+
+    "OP-00127": {
+        cliente: "Laura M.",
+        estado: "Entregado",
+        fecha: "20 de agosto de 2026",
+        tipo: "Lentes formulados"
+    }
+};
+
+/*CONSULTA*/
 const formularioConsulta = document.querySelector("#form-consulta");
 
 formularioConsulta.addEventListener("submit", function(evento) {
@@ -29,6 +55,60 @@ formularioConsulta.addEventListener("submit", function(evento) {
 
     const numeroPedido = document.querySelector("#numero-pedido").value;
 
-    console.log("Número de pedido:", numeroPedido);
+    const resultado = document.querySelector("#resultado-pedido");
 
+    if (pedidos[numeroPedido]) {
+
+        resultado.innerHTML = `
+            <div class="resultado-pedido">
+            <h4>
+                <i class="bi bi-check-circle-fill text-success"></i>
+                Pedido encontrado
+            </h4>
+
+            <p>
+                <strong>Número de pedido:</strong> ${numeroPedido}
+            </p>
+
+            <p>
+                <strong>Cliente:</strong> ${pedidos[numeroPedido].cliente}
+            </p>
+
+            <p>
+                <strong>Tipo de lente:</strong> ${pedidos[numeroPedido].tipo}
+            </p>
+
+            <p>
+                <strong>Estado:</strong>
+                <span class="estado-pedido">
+                    ${pedidos[numeroPedido].estado}
+                </span>
+            </p>
+
+            <p>
+                <strong>Fecha estimada:</strong> ${pedidos[numeroPedido].fecha}
+            </p>
+    `;
+
+    } else {
+
+          resultado.innerHTML = `
+              <div class="resultado-pedido">
+                  <h4>
+                      <i class="bi bi-exclamation-circle-fill text-danger"></i>
+                      Pedido no encontrado
+                  </h4>
+
+                  <p>
+                      No encontramos un pedido con el número:
+                      <strong>${numeroPedido}</strong>
+                  </p>
+
+                  <p>
+                      Verifica el número ingresado e inténtalo nuevamente.
+                  </p>
+              </div>
+    `     ;
+
+    }
 });
