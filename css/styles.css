@@ -156,7 +156,7 @@ a:hover {
 /* WHATSAPP MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 150px;
+    bottom: 100px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -403,7 +403,7 @@ section {
 
 /* ENCABEZADO CONSULTA DE PEDIDO */
 .consulta-header {
-  min-height: 45vh;
+  min-height: 32vh;
   background-image:
     linear-gradient(rgba(229, 28, 113, 0.25), rgba(0, 0, 0, 0.7)),
     url("../img/Futura.png");
@@ -412,9 +412,24 @@ section {
   background-repeat: no-repeat;
 }
 
+/* CONTENIDO DEL ENCABEZADO DE CONSULTA */
+.contenido-consulta-header {
+  transform: translateY(25px);
+}
+
 /* SECCIÓN CONSULTA */
 .consulta-section {
   background-color: var(--color-secundario-soft);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px) {
+  .consulta-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
 }
 
 /* TARJETA DE CONSULTA */
@@ -477,8 +492,44 @@ section {
   margin-bottom: 8px;
 }
 
+/* ESTADOS DEL PEDIDO */
+
 .estado-pedido {
-  color: var(--color-acento);
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.estado-fabricacion {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.estado-listo {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.estado-entregado {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+/* BOTÓN NUEVA CONSULTA */
+.btn-nueva-consulta {
+  background-color: transparent;
+  color: var(--color-acento);
+  border: 2px solid var(--color-acento);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-nueva-consulta:hover {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
 }
 

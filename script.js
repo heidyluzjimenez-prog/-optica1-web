@@ -22,7 +22,7 @@ elementosFade.forEach(function(elemento) {
   observador.observe(elemento);
 });
 
-/*CONSULTA DE PEDIDOS*/
+/*PEDIDOS*/
 const pedidos = {
     "OP-00125": {
         cliente: "María G.",
@@ -59,56 +59,103 @@ formularioConsulta.addEventListener("submit", function(evento) {
 
     if (pedidos[numeroPedido]) {
 
+        const estadoPedido = pedidos[numeroPedido].estado;
+
+        let claseEstado = "";
+
+        if (estadoPedido === "En fabricación") {
+            claseEstado = "estado-fabricacion";
+        } else if (estadoPedido === "Listo para entregar") {
+            claseEstado = "estado-listo";
+        } else if (estadoPedido === "Entregado") {
+            claseEstado = "estado-entregado";
+        }
+
         resultado.innerHTML = `
+
             <div class="resultado-pedido">
-            <h4>
-                <i class="bi bi-check-circle-fill text-success"></i>
-                Pedido encontrado
-            </h4>
+                <h4>
+                    <i class="bi bi-check-circle-fill text-success"></i>
+                    Pedido encontrado
+                </h4>
 
-            <p>
-                <strong>Número de pedido:</strong> ${numeroPedido}
-            </p>
+                <p>
+                    <strong>Número de pedido:</strong> ${numeroPedido}
+                </p>
 
-            <p>
-                <strong>Cliente:</strong> ${pedidos[numeroPedido].cliente}
-            </p>
+                <p>
+                    <strong>Cliente:</strong> ${pedidos[numeroPedido].cliente}
+                </p>
 
-            <p>
-                <strong>Tipo de lente:</strong> ${pedidos[numeroPedido].tipo}
-            </p>
+                <p>
+                    <strong>Tipo de lente:</strong> ${pedidos[numeroPedido].tipo}
+                </p>
 
-            <p>
-                <strong>Estado:</strong>
-                <span class="estado-pedido">
-                    ${pedidos[numeroPedido].estado}
-                </span>
-            </p>
+                <p>
+                    <strong>Estado:</strong>
+                    <span class="estado-pedido ${claseEstado}">
+                        ${estadoPedido}
+                    </span>
+                </p>
 
-            <p>
+                <p>
                 <strong>Fecha estimada:</strong> ${pedidos[numeroPedido].fecha}
-            </p>
+                </p>
+            </div>
+
+            
+            <button type="button" class="btn-nueva-consulta mt-3" id="nueva-consulta">
+                <i class="bi bi-arrow-repeat"></i>
+                Nueva consulta
+            </button>
+            
     `;
 
     } else {
 
-          resultado.innerHTML = `
-              <div class="resultado-pedido">
-                  <h4>
-                      <i class="bi bi-exclamation-circle-fill text-danger"></i>
-                      Pedido no encontrado
-                  </h4>
+        resultado.innerHTML = `
+            <div class="resultado-pedido">
+                <h4>
+                    <i class="bi bi-exclamation-circle-fill text-danger"></i>
+                        Pedido no encontrado
+                    </h4>
 
-                  <p>
-                      No encontramos un pedido con el número:
-                      <strong>${numeroPedido}</strong>
-                  </p>
+                    <p>
+                        No encontramos un pedido con el número:
+                        <strong>${numeroPedido}</strong>
+                    </p>
 
-                  <p>
-                      Verifica el número ingresado e inténtalo nuevamente.
-                  </p>
+                    <p>
+                        Verifica el número ingresado e inténtalo nuevamente.
+                    </p>
+
+                    <button type="button" class="btn-nueva-consulta mt-3" id="nueva-consulta">
+                        <i class="bi bi-arrow-repeat"></i>
+                        Nueva consulta
+                    </button>
               </div>
     `     ;
 
     }
+
+
+ /* DESPLAZAMIENTO AL RESULTADO */
+    resultado.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+});
+
+});
+
+/* NUEVA CONSULTA */
+document.addEventListener("click", function(evento) {
+
+    if (evento.target.closest("#nueva-consulta")) {
+
+        document.querySelector("#numero-pedido").value = "";
+        document.querySelector("#resultado-pedido").innerHTML = "";
+
+        document.querySelector("#numero-pedido").focus();
+    }
+
 });
