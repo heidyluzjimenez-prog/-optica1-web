@@ -87,22 +87,135 @@ a:hover {
   color: var(--color-secundario);
 }
 
-/* ICONO HAMBURGUESA */
+/* MENÚ HAMBURGUESA */
 .navbar-toggler {
-  padding: 4px 8px;
-  border: 1px solid var(--color-blanco);
-  border-radius: 8px;
-  box-shadow: none;
-  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  margin-right: 8px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: transparent;
+  box-shadow: none !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* HACE EL ICONO HAMBURGUÉS COMPLETAMENTE BLANCO */
+/* BOLITA NEGRA AL ACTIVAR EL MENÚ */
+.navbar-toggler::before {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background-color: var(--color-negro);
+
+  transform: scale(0);
+  transition: transform 0.5s ease;
+
+  z-index: 0;
+}
+
+/* MOSTRAR BOLITA AL ABRIR */
+.navbar-toggler[aria-expanded="true"]::before {
+  transform: scale(1);
+}
+
+/* QUITAR EL ICONO DE BOOTSTRAP */
 .navbar-toggler-icon {
   width: 24px;
-  height: 24px;
+  height: 18px;
+  position: relative;
+  display: block;
 
-  background-size: 24px;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+   z-index: 1;
+
+  background-image: none !important;
+  background-color: transparent;
+}
+
+/* TRES LÍNEAS DEL MENÚ */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-blanco);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: 0;
+  box-shadow: 0 8px 0 var(--color-blanco);
+}
+
+.navbar-toggler-icon::after {
+  bottom: 0;
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
+/* CUANDO EL MENÚ ESTÁ ABIERTO: CONVERTIR ☰ EN X */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  top: 8px;
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  bottom: 8px;
+  transform: rotate(-45deg);
+}
+
+/* MENÚ DESPLEGABLE EN MÓVIL */
+@media (max-width: 991.98px) {
+
+  .navbar-custom .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    width: 220px;
+
+    background-color: var(--color-negro);
+
+    padding: 15px 20px;
+
+    border-radius: 0 0 0 12px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* LINKS DEL MENÚ MÓVIL */
+  .navbar-custom .navbar-nav .nav-link {
+    color: var(--color-blanco);
+    padding: 10px 5px;
+    transition: color 0.25s ease;
+  }
+
+  /* HOVER VERDE DE MARCA */
+  .navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--color-secundario);
+  }
+
+  /* LINK ACTIVO */
+  .navbar-custom .navbar-nav .nav-link.active {
+    color: var(--color-blanco);
+  }
+
+  /* HOVER DEL LINK ACTIVO */
+  .navbar-custom .navbar-nav .nav-link.active:hover {
+    color: var(--color-secundario);
+  }
 }
 
 /* HERO */
@@ -156,7 +269,7 @@ a:hover {
 /* WHATSAPP MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 100px;
+    bottom: 150px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -403,7 +516,7 @@ section {
 
 /* ENCABEZADO CONSULTA DE PEDIDO */
 .consulta-header {
-  min-height: 32vh;
+  min-height: 45vh;
   background-image:
     linear-gradient(rgba(229, 28, 113, 0.25), rgba(0, 0, 0, 0.7)),
     url("../img/Futura.png");
@@ -412,24 +525,9 @@ section {
   background-repeat: no-repeat;
 }
 
-/* CONTENIDO DEL ENCABEZADO DE CONSULTA */
-.contenido-consulta-header {
-  transform: translateY(25px);
-}
-
 /* SECCIÓN CONSULTA */
 .consulta-section {
   background-color: var(--color-secundario-soft);
-  padding-top: 30px !important;
-  padding-bottom: 30px !important;
-}
-
-/* AJUSTE PARA MÓVIL */
-@media (max-width: 768px) {
-  .consulta-section {
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
-  }
 }
 
 /* TARJETA DE CONSULTA */
@@ -492,44 +590,7 @@ section {
   margin-bottom: 8px;
 }
 
-/* ESTADOS DEL PEDIDO */
-
 .estado-pedido {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.estado-fabricacion {
-  background-color: #fff3cd;
-  color: #856404;
-}
-
-.estado-listo {
-  background-color: #cfe2ff;
-  color: #084298;
-}
-
-.estado-entregado {
-  background-color: #d1e7dd;
-  color: #0f5132;
-}
-
-/* BOTÓN NUEVA CONSULTA */
-.btn-nueva-consulta {
-  background-color: transparent;
   color: var(--color-acento);
-  border: 2px solid var(--color-acento);
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: 0.3s;
+  font-weight: 700;
 }
-
-.btn-nueva-consulta:hover {
-  background-color: var(--color-acento);
-  color: var(--color-blanco);
-}
-
