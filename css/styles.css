@@ -269,7 +269,7 @@ a:hover {
 /* WHATSAPP MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 150px;
+    bottom: 100px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -528,6 +528,13 @@ section {
 /* SECCIÓN CONSULTA */
 .consulta-section {
   background-color: var(--color-secundario-soft);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* POSICIÓN DEL FORMULARIO AL LLEGAR DESDE UN ENLACE */
+#form-consulta {
+  scroll-margin-top: 100px;
 }
 
 /* TARJETA DE CONSULTA */
@@ -590,7 +597,56 @@ section {
   margin-bottom: 8px;
 }
 
+/* ESTADOS DEL PEDIDO */
 .estado-pedido {
   color: var(--color-acento);
   font-weight: 700;
+}
+
+/* EN FABRICACIÓN */
+.estado-fabricacion {
+  color: #f4b400;
+  font-weight: 700;
+}
+
+/* LISTO PARA ENTREGAR */
+.estado-listo {
+  color: var(--color-acento);
+  font-weight: 700;
+}
+
+/* ENTREGADO */
+.estado-entregado {
+  color: var(--color-secundario);
+  font-weight: 700;
+}
+
+/* BOTÓN NUEVA CONSULTA */
+.btn-nueva-consulta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 20px;
+
+  color: var(--color-acento);
+  background-color: transparent;
+
+  border: 2px solid var(--color-acento);
+  border-radius: 8px;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+/* HOVER NUEVA CONSULTA */
+.btn-nueva-consulta:hover {
+  color: var(--color-blanco);
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
 }
