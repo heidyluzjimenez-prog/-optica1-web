@@ -493,7 +493,7 @@ footer {
 }
 
 .footer-link:hover {
-  color: var(--color-blanco);
+  color: var(--color-secundario);
 }
 
 /* ESPACIADO GENERAL DE LAS SECCIONES */
@@ -649,4 +649,156 @@ section {
   color: var(--color-blanco);
   background-color: var(--color-acento);
   border-color: var(--color-acento);
+}
+
+/* SECCIÓN CONTACTO */
+.contacto-section {
+  padding-top: 40px !important;
+  padding-bottom: 80px !important;
+}
+
+/* AJUSTE CONTACTO EN MÓVIL */
+@media (max-width: 768px) {
+
+  .contacto-section {
+    padding-top: 30px !important;
+    padding-bottom: 60px !important;
+  }
+
+}
+
+/* INFORMACIÓN DE CONTACTO */
+.contacto-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+/* ICONOS DE CONTACTO */
+.contacto-icon {
+  font-size: 2rem;
+  color: var(--color-acento);
+  min-width: 35px;
+}
+
+/* TÍTULOS DE INFORMACIÓN */
+.contacto-info h5 {
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--color-texto);
+}
+
+/* TEXTO DE INFORMACIÓN */
+.contacto-info p {
+  margin-bottom: 0;
+  color: var(--color-texto-secundario);
+  line-height: 1.6;
+}
+
+/* ENLACE WHATSAPP */
+.contacto-link {
+  color: var(--color-acento);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* HOVER ENLACE WHATSAPP */
+.contacto-link:hover {
+  color: var(--color-secundario);
+}
+
+/* FORMULARIO DE CONTACTO */
+.contacto-card {
+  background-color: var(--color-blanco);
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+/* TÍTULO DEL FORMULARIO */
+.contacto-card h2 {
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* ETIQUETAS */
+.contacto-card .form-label {
+  color: var(--color-texto);
+  font-weight: 600;
+}
+
+/* CAMPOS */
+.contacto-card .form-control {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+}
+
+/* CAMPOS AL HACER CLIC */
+.contacto-card .form-control:focus {
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 0.2rem rgba(229, 28, 113, 0.15);
+}
+
+/* BOTÓN ENVIAR */
+.contacto-card .btn-primary {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+/* ENCABEZADO PÁGINAS LEGALES */
+.legal-header {
+  padding-top: 130px;
+  padding-bottom: 50px;
+  background-color: var(--color-blanco);
+}
+
+.legal-header h1 {
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* NAVBAR EN PÁGINAS LEGALES */
+.legal-page .navbar-custom {
+  background-color: var(--color-negro);
+}
+
+/* CONTENIDO DE PÁGINAS LEGALES */
+.legal-content {
+  padding-top: 20px !important;
+  padding-bottom: 30px !important;
+}
+
+/* TIENDA EN CONSTRUCCIÓN */
+.tienda-construccion {
+  padding-top: 60px;
+  padding-bottom: 100px;
+  background-color: var(--color-secundario-soft);
+}
+
+.tienda-card {
+  background-color: var(--color-blanco);
+  padding: 50px 40px;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.12);
+}
+
+.tienda-icon {
+  font-size: 4rem;
+  color: var(--color-acento);
+  margin-bottom: 20px;
+}
+
+.tienda-card h2 {
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tienda-card p {
+  color: var(--color-texto-secundario);
+  line-height: 1.7;
 }

@@ -49,6 +49,8 @@ const pedidos = {
 /*CONSULTA*/
 const formularioConsulta = document.querySelector("#form-consulta");
 
+if (formularioConsulta) {
+
 formularioConsulta.addEventListener("submit", function(evento) {
 
     evento.preventDefault();
@@ -147,6 +149,8 @@ formularioConsulta.addEventListener("submit", function(evento) {
 
 });
 
+}
+
 /* NUEVA CONSULTA */
 document.addEventListener("click", function(evento) {
 
@@ -159,3 +163,39 @@ document.addEventListener("click", function(evento) {
     }
 
 });
+
+/* FORMULARIO DE CONTACTO */
+const formularioContacto = document.querySelector("#form-contacto");
+
+if (formularioContacto) {
+
+    formularioContacto.addEventListener("submit", function(evento) {
+
+        evento.preventDefault();
+
+        const nombre = document.querySelector("#nombre").value;
+        const telefono = document.querySelector("#telefono").value;
+        const correo = document.querySelector("#correo").value;
+        const mensaje = document.querySelector("#mensaje").value;
+
+        const textoWhatsApp = `
+Hola, soy ${nombre}.
+
+Teléfono: ${telefono}
+Correo: ${correo}
+
+Mensaje:
+${mensaje}
+        `;
+
+        const mensajeCodificado = encodeURIComponent(textoWhatsApp);
+
+        const numeroWhatsApp = "573182627710";
+
+        const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        window.open(enlaceWhatsApp, "_blank");
+
+    });
+
+}
