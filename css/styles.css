@@ -16,8 +16,11 @@
   border: none;
 }
 
-.btn-primary:hover {
-  background-color: #c2185b;
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #c2185b !important;
+  border-color: #c2185b !important;
 }
 
 /* TIPOGRAFÍA */
@@ -270,7 +273,7 @@ a:hover {
 @media (max-width: 768px) {
   .whatsapp-float {
     bottom: 100px;
-    right: 15px;
+    right: 25px;
     width: 50px;
     height: 50px;
   }
@@ -651,7 +654,7 @@ section {
   border-color: var(--color-acento);
 }
 
-/* SECCIÓN CONTACTO */
+/* PAGINA Y SECCIÓN CONTACTO */
 .contacto-section {
   padding-top: 40px !important;
   padding-bottom: 80px !important;
@@ -743,9 +746,24 @@ section {
 }
 
 /* BOTÓN ENVIAR */
+
 .contacto-card .btn-primary {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-blanco);
+  border-radius: 8px;
+  padding: 10px 28px;
+  transition: 0.3s ease;
+}
+
+.contacto-card .btn-primary:hover,
+.contacto-card .btn-primary:active,
+.contacto-card .btn-primary:focus {
+  background-color: #c2185b !important;
+  border-color: #c2185b !important;
+  color: var(--color-blanco) !important;
 }
 
 /* ENCABEZADO PÁGINAS LEGALES */
@@ -802,3 +820,4 @@ section {
   color: var(--color-texto-secundario);
   line-height: 1.7;
 }
+
